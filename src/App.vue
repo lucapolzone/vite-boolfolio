@@ -1,38 +1,26 @@
 <script>
-import axios from 'axios';
+import AppHeader from './components/AppHeader.vue';
+import ProjectList from './components/ProjectList.vue';
 
 export default {
   data() {
     return {
       title: "Boolfolio Frontend",
-      projects: []
     }
   },
 
-  created() {
-    // console.log(axios);
-    axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
-      this.projects = response.data.data;
-    });
-
-  }
-
-}
+  components: { AppHeader, ProjectList },
+};
 
 </script>
 
 <template>
+  <app-header :title="title" />
+  
   <div class="container">
-    <h1>{{ title }}</h1>
-
-    <div v-for="project in projects">
-      <ul>
-        <li><strong>ID: </strong>{{ project.id }}</li>
-        <li><strong>Titolo: </strong>{{ project.title }}</li>
-        <li><strong>Descrizione: </strong>{{ project.content }}</li>
-      </ul>
-    </div>
+    <project-list />
   </div>
+    
 </template>
 
 <!-- @use '/src/scss/general.scss'; -->
