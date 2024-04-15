@@ -2,7 +2,7 @@
 
 import { api, store } from '../store';
 import axios from 'axios';
-  
+import ProjectCard from './ProjectCard.vue';
 
   export default {
     data() {
@@ -10,6 +10,8 @@ import axios from 'axios';
         store,
       }
     },
+
+    components: { ProjectCard },
 
     created() {
       // console.log(axios);
@@ -21,14 +23,9 @@ import axios from 'axios';
 </script>
 
 <template>
-  <div v-for="project in store.projects">
-    <ul>
-      <li><strong>ID: </strong>{{ project.id }}</li>
-      <li><strong>Titolo: </strong>{{ project.title }}</li>
-      <li><strong>Descrizione: </strong>{{ project.content }}</li>
-    </ul>
+  <div class="row row-cols-3 g-3">
+    <project-card v-for="project in store.projects" :project="project" />
   </div>
-  
 </template>
 
 <style lang="scss" scoped>
