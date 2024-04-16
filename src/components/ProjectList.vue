@@ -33,10 +33,10 @@ import PaginationUi from './ui/PaginationUi.vue';
 </script>
 
 <template>
-    <pagination-ui @change-page="fetchProjects" :pagination="pagination" />
+    <pagination-ui @change-page="fetchProjects" :pagination="pagination" class="mt-4"/>
 
     <div class="row row-cols-4 g-3">
-      <project-card v-for="project in store.projects" :project="project" />
+      <project-card v-for="project in store.projects" :project="project" class="mb-4"/>
     </div>
   
 </template>
