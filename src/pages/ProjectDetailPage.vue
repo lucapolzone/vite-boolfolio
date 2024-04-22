@@ -22,7 +22,9 @@
 </script>
 
 <template>
-  <project-card :project="project" />
+  <div class="row">
+    <project-card :project="project" :isDetail="true"/>
+  </div>
 </template>
 
 <style lang="scss" scoped>
